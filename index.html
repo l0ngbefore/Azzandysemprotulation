@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azzandy pe sempro</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Minimalis & Elegan -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Musik Latar Belakang -->
+    <audio id="bgMusic" loop>
+        <source src="Overnight - Kita Lewati Berdua (Official Audio).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TAHAP 1: Tombol Berpindah 1 Layar Penuh (10x) -->
+    <section id="stage-prank" class="stage active">
+        <div class="prank-box">
+            <h2></h2>
+            <p></p>
+            <p id="prankMessage" class="prank-msg"></p>
+        </div>
+        <button id="trickBtn" class="trick-btn">Pencet ini</button>
+    </section>
+
+    <!-- TAHAP 2: Halaman Awal (Gelap -> Terang) -->
+    <section id="stage-welcome" class="stage">
+        <div class="welcome-content">
+            <h1 id="typingWelcome" class="typing-text"></h1>
+        </div>
+    </section>
+
+    <!-- TAHAP 3: Halaman Foto & Kata-kata Manis -->
+    <section id="stage-photo" class="stage">
+        <div class="slide-container">
+            <div class="media-frame">
+                <img src="foto1.jpeg" alt="Kenangan Foto">
+            </div>
+            <div class="text-frame">
+                <p id="typingPhoto" class="typing-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAHAP 4: Halaman Video & Kata -->
+    <section id="stage-video" class="stage">
+        <div class="slide-container">
+            <div class="media-frame">
+                <video autoplay muted loop playsinline>
+                    <source src="WhatsApp Video 2026-10-07 at 8.59.14 PM.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="text-frame">
+                <p id="typingVideo" class="typing-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAHAP 5: Finale (Petasan 5s -> Foto Memenuhi Layar 1 per 1 -> Teks Muncul) -->
+    <section id="stage-finale" class="stage">
+        <!-- Canvas Petasan di lapisan paling belakang -->
+        <canvas id="fireworksCanvas"></canvas>
+
+        <!-- Wadah Foto Memenuhi Layar -->
+        <div id="randomPhotosContainer" class="random-photos-container"></div>
+
+        <!-- Wadah Teks di Tengah (Aman di atas foto dan kembang api) -->
+        <div class="finale-container">
+            <div class="cute-wishes">
+                <h2 id="typingFinale" class="typing-text"></h2>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

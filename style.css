@@ -1,0 +1,257 @@
+:root {
+    --bg-dark: #0f0c0b;
+    --bg-light: #fff9f5;
+    --text-dark: #fcf9f5;
+    --text-light: #3d2c25;
+    --accent: #d97757;
+    --accent-soft: #f9dcd3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden;
+}
+
+/* Transisi Antar Halaman Sangat Lembut & Pelan */
+.stage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 2.2s ease;
+    padding: 20px;
+    z-index: 1;
+}
+
+.stage.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* TAHAP 1: Tombol Berpindah 1 Layar Penuh */
+#stage-prank {
+    background-color: var(--bg-dark);
+    display: block;
+}
+
+.prank-box {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-dark);
+    width: 90%;
+    max-width: 500px;
+}
+
+.prank-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.prank-box p {
+    font-size: 0.95rem;
+    color: #b0a49d;
+}
+
+.trick-btn {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(217, 119, 87, 0.4);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 99;
+}
+
+.trick-btn:hover {
+    background: #c56545;
+}
+
+.prank-msg {
+    margin-top: 15px;
+    font-size: 1rem !important;
+    color: #ff9e80 !important;
+    min-height: 24px;
+    font-weight: 500;
+}
+
+/* TAHAP 2: Welcome (Gelap -> Terang) */
+#stage-welcome {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    text-align: center;
+}
+
+#stage-welcome.bright {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+.welcome-content {
+    max-width: 700px;
+    padding: 20px;
+}
+
+/* TAHAP 3 & 4: Halaman Foto & Video */
+#stage-photo, #stage-video {
+    background-color: var(--bg-light);
+}
+
+.slide-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 650px;
+    text-align: center;
+}
+
+.media-frame {
+    width: 300px;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(61, 44, 37, 0.12);
+    border: 3px solid white;
+}
+
+.media-frame img, .media-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-frame {
+    min-height: 70px;
+    padding: 0 10px;
+}
+
+/* TAHAP 5: Finale Layers */
+#stage-finale {
+    background-color: #0f0c0b;
+    color: white;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 1. Kembang Api di lapisan paling belakang */
+#fireworksCanvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; 
+}
+
+/* 2. Foto Memenuhi Layar di lapisan tengah */
+.random-photos-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.scattered-photo {
+    position: absolute;
+    width: 310px;
+    height: 390px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #1a1514;
+    border: none;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transform: scale(0.3) translateY(60px);
+    transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scattered-photo.show {
+    opacity: 0.94; /* Foto tetap terlihat permanen dan tidak hilang */
+    transform: scale(1) translateY(0);
+}
+
+.scattered-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 3. Kotak Teks di lapisan paling depan agar sangat jelas dibaca */
+.finale-container {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    background: rgba(15, 12, 11, 0.9);
+    padding: 30px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.finale-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.typing-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .media-frame {
+        width: 250px;
+        height: 300px;
+    }
+    .scattered-photo {
+        width: 180px;
+        height: 230px;
+    }
+    .finale-container {
+        padding: 20px;
+        width: 85%;
+    }
+}
