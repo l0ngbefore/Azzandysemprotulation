@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             typeWriter(
                 "typingWelcome", 
                 "Eh ada Azza, baapa disini? cari uang kah. Candaa deymm, namamu Nur Azza Nadia atau Azzandy kah? Bukan salahku ee salah nama giftnya wkwkw", 
-                100, 
+                80, 
                 () => {
                     transitionToStage("stage-photo");
                     startPhotoStage();
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             typeWriter(
                 "typingPhoto", 
                 "Ehhh apanihh........ Oooh ada yang sempro pale, jiahhh gaga meen, tukang bagara sudah sempro, tambah susah berarti diajak ketambing ini, adohh. Btw kurangi bagara depan orangnya langsung coekkk.", 
-                100, 
+                80, 
                 () => {
                     transitionToStage("stage-video");
                     startVideoStage();
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
             typeWriter(
                 "typingVideo", 
                 "Ini semua korbanmu ee bakumpul untuk balas deym-mu, tobat torang cok digara sama kau, tapi asik sih...", 
-                100, 
+                80, 
                 () => {
                     transitionToStage("stage-finale");
                     startFinaleStage();
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     typeWriter(
                         "typingFinale", 
                         "Semprotulation!! Nur Azza Nadia, 1/3 step, tidak lama lagi bergelar S.Gz, semangat juga merevisi, jaga kesehatan karena TAMBING IS CALLING. Kurangi deymmu eee azzandy.. eh Nur Azza Nadia maksudnya wkwkwkwk deeyyymmmmmmmmmmmm", 
-                        95
+                        80
                     );
                 }, 800);
             });
