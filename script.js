@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(() => {
                     typeWriter(
                         "typingFinale", 
-                        "Happy semprotulation Nur Azza Nadia, 1/3 step, tidak lama lagi bergelar S.Gz, semangat juga merevisi, jaga kesehatan karena TAMBING IS CALLING. Kurangi deymmu eee azzandy.. eh Nur Azza Nadia maksudnya wkwkwkwk deeyyymmmmmmmmmmmm", 
+                        "Semprotulation!! Nur Azza Nadia, 1/3 step, tidak lama lagi bergelar S.Gz, semangat juga merevisi, jaga kesehatan karena TAMBING IS CALLING. Kurangi deymmu eee azzandy.. eh Nur Azza Nadia maksudnya wkwkwkwk deeyyymmmmmmmmmmmm", 
                         95
                     );
                 }, 800);
